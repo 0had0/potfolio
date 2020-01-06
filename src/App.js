@@ -2,7 +2,8 @@ import React from "react";
 import {
   createMuiTheme,
   makeStyles,
-  ThemeProvider
+  ThemeProvider,
+  responsiveFontSizes
 } from "@material-ui/core/styles";
 
 import Nav from "./components/nav";
@@ -18,7 +19,7 @@ import "./App.css";
 import ParticlesBg from "particles-bg";
 import blue from "@material-ui/core/colors/blue";
 
-const theme = createMuiTheme({
+let theme = createMuiTheme({
   palette: {
     type: "dark",
     primary: { main: "#fff" },
@@ -27,6 +28,7 @@ const theme = createMuiTheme({
     warning: { main: "#fb6340" }
   }
 });
+theme = responsiveFontSizes(theme);
 
 const useStyles = makeStyles({
   root: {
@@ -35,7 +37,8 @@ const useStyles = makeStyles({
     justifyContent: "flex-start",
     alignItems: "center",
     height: "100vh",
-    padding: "1% 3%"
+    padding: "1% 3%",
+    position: "static"
   }
 });
 

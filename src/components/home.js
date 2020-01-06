@@ -1,67 +1,103 @@
 import React from "react";
-import { Typography, Grid, makeStyles } from "@material-ui/core";
+import { Typography, Grid, makeStyles, Link } from "@material-ui/core";
 
 import "./home.css";
 import Typical from "react-typical";
+import blue from "@material-ui/core/colors/blue";
+
+import GitHubIcon from "@material-ui/icons/GitHub";
+import LinkedInIcon from "@material-ui/icons/LinkedIn";
+import FacebookIcon from "@material-ui/icons/Facebook";
+import InstagramIcon from "@material-ui/icons/Instagram";
 
 const useStyles = makeStyles({
   root: {
-    height: "90vh",
+    minHeight: "90vh",
     width: "100%",
-    padding: "3% 5%",
     display: "flex",
     flexDirection: "column",
-    alignItems: "flex-start",
+    alignItems: "center",
     justifyContent: "center"
   },
-  centered: {
-    width: "70%",
+  section: {
     display: "flex",
+    width: "90%",
+    maxHeight: "90%",
     flexDirection: "column",
-    justifyContent: "flex-start"
+    alignItems: "start",
+    justifyContent: "flex-start",
+    fontSize: "4vmin",
+    fontFamily: "Quicksand"
   },
-  title: {
-    width: "100%",
+  socialBar: {
     display: "flex",
     flexDirection: "row",
-    justifyContent: "flex-start",
-    alignItems: "center"
-  }
+    alignItems: "start",
+    minWidth: "200px",
+    justifyContent: "space-between"
+  },
+  socialBtn: {}
 });
 export default function Home(props) {
   const classes = useStyles();
   return (
-    <div className={classes.root}>
-      <div className={classes.centered}>
-        <div className={classes.title}>
-          <Typography
-            variant="h3"
-            color="primary"
-            style={{ marginRight: "6px" }}
-          >
-            {"I'm "}
-          </Typography>
-          <Typography variant="h3" color="primary">
+    <main className={classes.root}>
+      <section className={classes.section}>
+        <h1>
+          <span>
             <Typical
               steps={[
-                " Hadi Houssainy !",
+                "I'm Hadi Houssainy !",
                 1000,
-                " a Web developer.",
+                "I'm a Web developer.",
                 1000,
-                " a Creactive Mind.",
+                "I'm a Creactive Mind.",
                 1000
               ]}
               loop={Infinity}
-              wrapper="h4"
+              // wrapper="h1"
             />
-          </Typography>
-        </div>
-        <Typography variant="h5">
+          </span>
+        </h1>
+        <p>
           As a full stack web developer with some experience I create amazing
           websites and web apps to make the internet a better place. Get in
           touch to discuss how we can work together.
-        </Typography>
-      </div>
-    </div>
+        </p>
+        <div className={classes.socialBar}>
+          <Link href="https://github.com/0had0/">
+            <GitHubIcon className={classes.socialBtn} />
+          </Link>
+          <Link>
+            <LinkedInIcon className={classes.socialBtn} />
+          </Link>
+          <Link>
+            <FacebookIcon className={classes.socialBtn} />
+          </Link>
+          <Link>
+            <InstagramIcon className={classes.socialBtn} />
+          </Link>
+        </div>
+      </section>
+    </main>
   );
 }
+
+/*
+<Typical
+  steps={[
+    "'m Hadi Houssainy !",
+    1000,
+    "'m a Web developer.",
+    1000,
+    "'m a Creactive Mind.",
+    1000
+  ]}
+  loop={Infinity}
+  // wrapper="h4"
+/>
+
+As a full stack web developer with some experience I create amazing
+websites and web apps to make the internet a better place. Get in
+touch to discuss how we can work together.
+*/

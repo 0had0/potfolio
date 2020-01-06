@@ -4,6 +4,7 @@ import { Typography, makeStyles } from "@material-ui/core";
 const useStyles = makeStyles({
   root: {
     display: "flex",
+    position: "static",
     flexDirection: "row",
     justifyContent: "center",
     alignItems: "center",
