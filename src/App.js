@@ -1,4 +1,8 @@
 import React from "react";
+
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { CSSTransition } from "react-transition-group";
+
 import {
   createMuiTheme,
   makeStyles,
@@ -17,13 +21,14 @@ import "../node_modules/normalize.css/normalize.css";
 import "./App.css";
 
 import ParticlesBg from "particles-bg";
-import blue from "@material-ui/core/colors/blue";
+
+import colors from "./components/colors";
 
 let theme = createMuiTheme({
   palette: {
     type: "dark",
-    primary: { main: "#fff" },
-    secondary: { main: blue["A700"] },
+    primary: { main: "#ffffff" },
+    secondary: { main: colors.background },
     success: { main: "#2dce89" },
     warning: { main: "#fb6340" }
   }
@@ -35,26 +40,69 @@ const useStyles = makeStyles({
     display: "flex",
     flexDirection: "column",
     justifyContent: "flex-start",
-    alignItems: "center",
-    height: "100vh",
-    padding: "1% 3%",
-    position: "static"
+    alignItems: "start",
+    minHeight: "90%",
+    position: "static",
+    width: "100%"
   }
 });
 
 function App() {
-  const [index, setIndex] = React.useState("home");
   const classes = useStyles();
   return (
     <ThemeProvider theme={theme}>
       <div className={classes.root}>
         <CssBaseline />
-        <Nav />
-        <Home />
-        <About />
-        <Works />
+        <Router>
+          <Nav />
+          <Switch>
+            <Route path="/about">
+              {({ match }) => (
+                <CSSTransition
+                  in={match != null}
+                  timeout={300}
+                  classNames="page"
+                  unmountOnExit
+                >
+                  <div className="page">
+                    <About />
+                  </div>
+                </CSSTransition>
+              )}
+            </Route>
+            <Route path="/works">
+              {({ match }) => (
+                <CSSTransition
+                  in={match != null}
+                  timeout={300}
+                  classNames="page"
+                  unmountOnExit
+                >
+                  <div className="page">
+                    <Works />
+                  </div>
+                </CSSTransition>
+              )}
+            </Route>
+            <Route exact path="/">
+              {({ match }) => (
+                <CSSTransition
+                  in={match != null}
+                  timeout={300}
+                  classNames="page"
+                  unmountOnExit
+                >
+                  <div className="page">
+                    <Home />
+                  </div>
+                </CSSTransition>
+              )}
+            </Route>
+          </Switch>
+        </Router>
       </div>
-      <ParticlesBg type="cobweb" num={10} bg={true} color="#ffffff" />
+      <ParticlesBg color={colors.white} num={20} type="cobweb" bg={true} />
+      <ParticlesBg color={colors.main} num={5} type="cobweb" bg={true} />
       <Footer></Footer>
     </ThemeProvider>
   );

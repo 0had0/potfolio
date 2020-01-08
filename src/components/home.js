@@ -1,14 +1,14 @@
 import React from "react";
-import { Typography, Grid, makeStyles, Link } from "@material-ui/core";
+import { makeStyles, IconButton } from "@material-ui/core";
 
-import "./home.css";
 import Typical from "react-typical";
-import blue from "@material-ui/core/colors/blue";
 
 import GitHubIcon from "@material-ui/icons/GitHub";
 import LinkedInIcon from "@material-ui/icons/LinkedIn";
 import FacebookIcon from "@material-ui/icons/Facebook";
 import InstagramIcon from "@material-ui/icons/Instagram";
+
+import colors from "./colors";
 
 const useStyles = makeStyles({
   root: {
@@ -36,9 +36,12 @@ const useStyles = makeStyles({
     minWidth: "200px",
     justifyContent: "space-between"
   },
-  socialBtn: {}
+  selected: {
+    backgroundColor: colors.white,
+    color: colors.background
+  }
 });
-export default function Home(props) {
+function Home(props) {
   const classes = useStyles();
   return (
     <main className={classes.root}>
@@ -60,44 +63,29 @@ export default function Home(props) {
           </span>
         </h1>
         <p>
-          As a full stack web developer with some experience I create amazing
-          websites and web apps to make the internet a better place. Get in
-          touch to discuss how we can work together.
+          As a <b style={{ color: colors.main }}>full stack web developer</b>{" "}
+          with some experience I create{" "}
+          <i className={classes.selected}>amazing websites</i> and web apps to
+          make the internet a better place. Get in touch to discuss how we can
+          work together.
         </p>
         <div className={classes.socialBar}>
-          <Link href="https://github.com/0had0/">
+          <IconButton outlined href="https://github.com/0had0/">
             <GitHubIcon className={classes.socialBtn} />
-          </Link>
-          <Link>
+          </IconButton>
+          <IconButton>
             <LinkedInIcon className={classes.socialBtn} />
-          </Link>
-          <Link>
+          </IconButton>
+          <IconButton>
             <FacebookIcon className={classes.socialBtn} />
-          </Link>
-          <Link>
+          </IconButton>
+          <IconButton>
             <InstagramIcon className={classes.socialBtn} />
-          </Link>
+          </IconButton>
         </div>
       </section>
     </main>
   );
 }
 
-/*
-<Typical
-  steps={[
-    "'m Hadi Houssainy !",
-    1000,
-    "'m a Web developer.",
-    1000,
-    "'m a Creactive Mind.",
-    1000
-  ]}
-  loop={Infinity}
-  // wrapper="h4"
-/>
-
-As a full stack web developer with some experience I create amazing
-websites and web apps to make the internet a better place. Get in
-touch to discuss how we can work together.
-*/
+export default Home;
