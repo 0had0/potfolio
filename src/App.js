@@ -26,7 +26,7 @@ import colors from "./components/colors";
 
 let theme = createMuiTheme({
   palette: {
-    type: "dark",
+    type: "light",
     primary: { main: "#ffffff" },
     secondary: { main: colors.background },
     success: { main: "#2dce89" },
@@ -35,7 +35,18 @@ let theme = createMuiTheme({
 });
 theme = responsiveFontSizes(theme);
 
-const useStyles = makeStyles({
+// let themeLight = createMuiTheme({
+//   palette: {
+//     type: "light",
+//     primary: { main: "#ffffff" },
+//     secondary: { main: colors.background },
+//     success: { main: "#2dce89" },
+//     warning: { main: "#fb6340" }
+//   }
+// });
+// themeLight = responsiveFontSizes(theme);
+
+const useStyles = makeStyles(theme => ({
   root: {
     display: "flex",
     flexDirection: "column",
@@ -43,9 +54,10 @@ const useStyles = makeStyles({
     alignItems: "start",
     minHeight: "90%",
     position: "static",
-    width: "100%"
+    width: "100%",
+    color: "#fff"
   }
-});
+}));
 
 function App() {
   const classes = useStyles();

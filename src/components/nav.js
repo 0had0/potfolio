@@ -56,16 +56,16 @@ export default function Nav() {
           </h2>
           <Hidden xsDown>
             <div>
-              <Button component={RouterLink} to="/">
+              <Button color="primary" component={RouterLink} to="/">
                 Home
               </Button>
 
-              <Button component={RouterLink} to="/about">
+              <Button color="primary" component={RouterLink} to="/about">
                 About
               </Button>
 
-              <Button component={RouterLink} to="/works">
-                Contact
+              <Button color="primary" component={RouterLink} to="/works">
+                Works
               </Button>
             </div>
           </Hidden>
@@ -85,33 +85,40 @@ export default function Nav() {
             top: "auto",
             zIndex: "1000",
             backgroundColor: colors.background,
-            color: colors.main
+            color: colors.white
           }}
         >
           <BottomNavigationAction
-            color={colors.background}
+            style={{ color: "#fff" }}
             label="Home"
             icon={<HomeIcon />}
             component={RouterLink}
             to="/"
+            color="primary"
           />
           <BottomNavigationAction
+            style={{ color: "#fff" }}
             label="About"
             icon={<InfoIcon />}
             component={RouterLink}
             to="/about"
+            color="primary"
           />
           <BottomNavigationAction
+            style={{ color: "#fff" }}
             label="Works"
             icon={<ContactsIcon />}
             component={RouterLink}
             to="/works"
+            color="primary"
           />
           <BottomNavigationAction
+            style={{ color: "#fff" }}
             label="Contact"
             icon={<ContactsIcon />}
             component={RouterLink}
             to="/contact"
+            color="primary"
           />
         </BottomNavigation>
       </Hidden>

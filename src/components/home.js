@@ -70,17 +70,17 @@ function Home(props) {
           work together.
         </p>
         <div className={classes.socialBar}>
-          <IconButton outlined href="https://github.com/0had0/">
-            <GitHubIcon className={classes.socialBtn} />
+          <IconButton href="https://github.com/0had0/">
+            <GitHubIcon color="primary" />
           </IconButton>
-          <IconButton>
-            <LinkedInIcon className={classes.socialBtn} />
+          <IconButton href="https://www.linkedin.com/in/hadi-h-908832b3/">
+            <LinkedInIcon color="primary" />
           </IconButton>
-          <IconButton>
-            <FacebookIcon className={classes.socialBtn} />
+          <IconButton href="https://www.facebook.com/hadi.houssainy.1">
+            <FacebookIcon color="primary" />
           </IconButton>
-          <IconButton>
-            <InstagramIcon className={classes.socialBtn} />
+          <IconButton href="https://www.instagram.com/hadihoussainy7575/">
+            <InstagramIcon color="primary" />
           </IconButton>
         </div>
       </section>

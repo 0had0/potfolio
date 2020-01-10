@@ -6,26 +6,70 @@ import {
   ExpansionPanel,
   ExpansionPanelDetails,
   ExpansionPanelSummary,
-  Typography
+  Typography,
+  Avatar,
+  Link
 } from "@material-ui/core";
 
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 
-import "./about.css";
 import colors from "./colors";
 
 const useStyle = makeStyles(theme => ({
   Order: {
-    wodth: "100%",
+    width: "100%",
     padding: "10px 0",
     order: 1,
 
     [theme.breakpoints.up(`sm`)]: {
-      order: 3
+      order: 3,
+      minHeight: "90vh"
     }
   },
   chip: {
     margin: theme.spacing(0.2)
+  },
+  title: {
+    fontFamily: "Quicksand",
+    fontWeight: "700",
+    fontSize: "8vmin",
+    color: colors.background,
+    margin: "0"
+  },
+  profile: {
+    width: "100%",
+    display: "flex",
+    flexDirection: "row",
+    // justifyContent: "center",
+    [theme.breakpoints.down("sm")]: {
+      flexDirection: "column"
+    },
+    alignItems: "center",
+    margin: theme.spacing(1, 0)
+  },
+  avatar: {
+    width: "40%",
+    [theme.breakpoints.down("sm")]: {
+      width: "100%"
+    },
+    height: "auto",
+    borderRadius: "50%",
+    // border: "3px solid" + colors.background,
+    border: "5px solid" + colors.main
+    // padding: theme.spacing(0.5, 0.5)
+  },
+  profileTypo: {
+    width: "100%",
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    alignItems: "flex-start",
+    padding: theme.spacing(2, 5),
+    [theme.breakpoints.down("sm")]: {
+      borderLeft: "5px solid " + colors.background,
+      borderRight: "5px solid " + colors.background,
+      padding: theme.spacing(5, 5)
+    }
   }
 }));
 
@@ -40,8 +84,8 @@ const Chips = props => {
           key={i}
           variant="outlined"
           label={item}
-          color="primary"
           size="small"
+          color="primary"
         />
       ))}
     </Grid>
@@ -60,9 +104,9 @@ const Section = props => {
         aria-controls="panel1a-content"
         id="panel1a-header"
       >
-        <h3 style={{ color: colors.main }}>{title}</h3>
+        <h3 style={{ color: colors.white, margin: "0 0" }}>{title}</h3>
       </ExpansionPanelSummary>
-      <ExpansionPanelDetails>
+      <ExpansionPanelDetails style={{ backgroundColor: "#232630" }}>
         <Chips items={items} />
       </ExpansionPanelDetails>
     </ExpansionPanel>
@@ -116,7 +160,44 @@ export default function About() {
         sm={8}
         md={8}
       >
-        <h1 style={{ color: colors.background, margin: "0" }} className="title">
+        <div className={classes.profile}>
+          <Avatar
+            alt="Hadi Houssainy"
+            src="https://instagram.fbey5-1.fna.fbcdn.net/v/t51.2885-15/e35/61538460_332432414101064_9031629739085302686_n.jpg?_nc_ht=instagram.fbey5-1.fna.fbcdn.net&_nc_cat=108&_nc_ohc=6Imh45ivyUoAX9THXdp&oh=1030afe8b257b1a14eaa2cb689303ecd&oe=5EA5AEF9"
+            className={classes.avatar}
+          />
+          <div className={classes.profileTypo}>
+            <Typography color="secondary">
+              Engineer student at{" "}
+              <Link href="http://www.ulfg.ul.edu.lb/" style={{ color: "blue" }}>
+                <u>Lebanese University Faculty of Engineering</u>
+              </Link>
+              .
+            </Typography>
+            <Typography color="secondary">Freelancer Web developer.</Typography>
+            <Typography color="secondary">
+              Studied at{" "}
+              <Link
+                href="https://www.freecodecamp.org/"
+                style={{ color: colors.main }}
+              >
+                <u>FreeCodeCamp</u>
+              </Link>
+              .
+            </Typography>
+            <Typography color="secondary">
+              From{" "}
+              <Link
+                href="https://goo.gl/maps/oWcHqeaZjwGegqnA8"
+                style={{ color: colors.background }}
+              >
+                <b>Beirut, Lebanon</b>
+              </Link>
+              .
+            </Typography>
+          </div>
+        </div>
+        <h1 className={classes.title}>
           About<span style={{ color: colors.main }}>.</span>
         </h1>
         <br />
@@ -134,10 +215,10 @@ export default function About() {
           <Typography color="secondary">
             As a Web Developer, I love innovations and technologies right from
             childhood. I was fortunate to learn <u>HTML</u> at age 12 and{" "}
-            <u>nodeJS</u>
-            at age 15, for this reason, I enjoy multi-tasking and getting to
-            wear many hats. These have made me gain a lot of experience, having
-            worked with Frameworks like <b>React</b> and <b>Express</b>.
+            <u>nodeJS</u> at age 15, for this reason, I enjoy multi-tasking and
+            getting to wear many hats. These have made me gain a lot of
+            experience, having worked with Frameworks like <b>React</b> and{" "}
+            <b>Express</b>.
           </Typography>
         </article>
         <br />
