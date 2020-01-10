@@ -168,13 +168,13 @@ export default function About() {
           />
           <div className={classes.profileTypo}>
             <Typography color="secondary">
-              Engineer student at{" "}
+              Engineering student at{" "}
               <Link href="http://www.ulfg.ul.edu.lb/" style={{ color: "blue" }}>
                 <u>Lebanese University Faculty of Engineering</u>
               </Link>
               .
             </Typography>
-            <Typography color="secondary">Freelancer Web developer.</Typography>
+            <Typography color="secondary">Freelance Web developer.</Typography>
             <Typography color="secondary">
               Studied at{" "}
               <Link
