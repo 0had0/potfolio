@@ -96,7 +96,7 @@ function App() {
                 </CSSTransition>
               )}
             </Route>
-            <Route path="/">
+            <Route path={"/" || "/portfolio"}>
               {({ match }) => (
                 <CSSTransition
                   in={match != null}
